@@ -9,26 +9,26 @@ class TeacherPolicy
 {
     public function viewAny(User $user): bool
     {
-        return $user->role === 'admin';
+        return $user->is_admin;
     }
 
     public function view(User $user, Teacher $teacher): bool
     {
-        return $user->role === 'admin';
+        return $user->is_admin;
     }
 
     public function create(User $user): bool
     {
-        return $user->role === 'admin';
+        return $user->is_admin;
     }
 
     public function update(User $user, Teacher $teacher): bool
     {
-        return $user->role === 'admin';
+        return $user->is_admin;
     }
 
     public function delete(User $user, Teacher $teacher): bool
     {
-        return $user->role === 'admin';
+        return $user->is_admin;
     }
 }
