@@ -255,7 +255,7 @@ Adjust the base URL to match the API routes and authentication setup you impleme
 
 The frontend development server will display its local URL in the terminal, usually:
 
-`http://localhost:5173`
+`http://localhost:5143`
 
 ## 🔌 API Endpoints
 
