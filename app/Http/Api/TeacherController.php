@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Teacher;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 
 class TeacherController extends Controller
 {
@@ -20,6 +21,7 @@ class TeacherController extends Controller
             'employee_number' => ['nullable', 'string', 'max:50', 'unique:teachers,employee_number'],
             'name' => ['required', 'string', 'max:255'],
             'email' => ['nullable', 'email', 'max:255', 'unique:teachers,email'],
+            'gender' => ['nullable', 'string', Rule::in(['Male', 'Female'])],
             'phone' => ['nullable', 'string', 'max:30'],
             'specialization' => ['nullable', 'string', 'max:255'],
         ]);
@@ -40,6 +42,7 @@ class TeacherController extends Controller
             'employee_number' => ['sometimes', 'nullable', 'string', 'max:50', 'unique:teachers,employee_number,'.$teacher->id],
             'name' => ['sometimes', 'required', 'string', 'max:255'],
             'email' => ['sometimes', 'nullable', 'email', 'max:255', 'unique:teachers,email,'.$teacher->id],
+            'gender' => ['sometimes', 'nullable', 'string', Rule::in(['Male', 'Female'])],
             'phone' => ['sometimes', 'nullable', 'string', 'max:30'],
             'specialization' => ['sometimes', 'nullable', 'string', 'max:255'],
         ]);
